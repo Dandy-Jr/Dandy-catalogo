@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dandy Made In Italy — Catálogo 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DANDY MADE IN ITALY — DESIGN TOKENS
+   Para editar as cores e fontes principais, altere aqui:
+   ============================================================ */
+:root {
+  /* === CORES PRINCIPAIS === */
+  --navy:        #0B1628;    /* azul marinho escuro — fundo e header */
+  --navy-mid:    #132040;    /* azul médio — cards escuros */
+  --navy-light:  #1C2E50;    /* azul claro — hovers */
+  --gold:        #C8A96E;    /* dourado/champagne — detalhes */
+  --gold-light:  #E8C98A;    /* dourado claro — hover de ícones */
+  --cream:       #F7F4EE;    /* off-white — fundo de conteúdo */
+  --cream-dark:  #EDE9E0;    /* off-white escuro — bordas suaves */
+  --text-dark:   #1A1A2E;    /* texto principal escuro */
+  --text-mid:    #4A4A6A;    /* texto secundário */
+  --text-light:  #8A8A9A;    /* texto terciário/labels */
+  --white:       #FFFFFF;
+  --green:       #2A5C3F;    /* badge disponível */
+  --green-light: #E8F5EC;
+
+  /* === TIPOGRAFIA === */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-elegant: 'Cormorant Garamond', Georgia, serif;
+
+  /* === ESPAÇAMENTOS === */
+  --gap-xs:  0.5rem;
+  --gap-sm:  1rem;
+  --gap-md:  1.5rem;
+  --gap-lg:  2.5rem;
+  --gap-xl:  4rem;
+  --gap-2xl: 6rem;
+
+  /* === BORDAS === */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* === WHATSAPP — EDITE SEU NÚMERO AQUI === */
+  /* Formato: código do país + DDD + número, sem espaços ou símbolos */
+  /* Exemplo: 5516994401722 = +55 16 99440-1722 */
+}
+
+/* ============================================================
+   RESET E BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================================
+   NAVEGAÇÃO
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: var(--navy);
+  border-bottom: 1px solid rgba(200,169,110,0.2);
+  padding: 0 var(--gap-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-sm);
+  text-decoration: none;
+}
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  line-height: 1.1;
+}
+.nav-logo-sub {
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  display: block;
+  font-weight: 400;
+}
+.nav-links {
+  display: flex;
+  gap: var(--gap-md);
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.nav-links a:hover,
+.nav-links a.active { color: var(--gold); }
+
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--white);
+  transition: all 0.3s;
+}
+
+/* ============================================================
+   SEÇÕES / PÁGINAS
+   ============================================================ */
+.page { display: none; }
+.page.active { display: block; }
+.section-spacer { height: 64px; }
+
+/* ============================================================
+   HOME — HERO
+   ============================================================ */
+.hero {
+  background: var(--navy);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  padding: var(--gap-xl) var(--gap-lg);
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 40%, rgba(200,169,110,0.06) 0%, transparent 65%),
+              radial-gradient(ellipse at 20% 80%, rgba(28,46,80,0.8) 0%, transparent 50%);
+}
+.hero-border {
+  position: absolute;
+  inset: 24px;
+  border: 1px solid rgba(200,169,110,0.15);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+.hero-eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--gap-md);
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 7vw, 5rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: var(--gap-sm);
+}
+.hero-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+.hero-subtitle {
+  font-family: var(--font-elegant);
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: var(--gap-lg);
+  font-style: italic;
+}
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: var(--gap-md) auto;
+}
+.hero-desc {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.8;
+  margin-bottom: var(--gap-lg);
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-buttons {
+  display: flex;
+  gap: var(--gap-sm);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.25s ease;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-sm);
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-1px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.btn-navy {
+  background: var(--navy);
+  color: var(--white);
+}
+.btn-navy:hover { background: var(--navy-light); }
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 600;
+}
+.btn-gold:hover { background: var(--gold-light); }
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  font-weight: 600;
+}
+.btn-whatsapp:hover { background: #1da851; }
+.btn-danger {
+  background: #c0392b;
+  color: white;
+}
+.btn-danger:hover { background: #a93226; }
+
+/* ============================================================
+   PILLARS / PROPOSTA DE VALOR
+   ============================================================ */
+.pillars {
+  background: var(--cream);
+  padding: var(--gap-xl) var(--gap-lg);
+}
+.section-header {
+  text-align: center;
+  margin-bottom: var(--gap-xl);
+}
+.section-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: var(--gap-xs);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.2;
+}
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--gap-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pillar-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  border-top: 2px solid var(--gold);
+  padding: var(--gap-md);
+  text-align: center;
+}
+.pillar-icon {
+  font-size: 1.8rem;
+  margin-bottom: var(--gap-sm);
+}
+.pillar-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+.pillar-desc {
+  font-size: 0.8rem;
+  color: var(--text-mid);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   PREVIEW DE PRODUTOS NA HOME
+   ============================================================ */
+.home-products {
+  background: var(--navy);
+  padding: var(--gap-xl) var(--gap-lg);
+}
+.home-products .section-title { color: var(--white); }
+.home-products .section-eyebrow { color: var(--gold); }
+.products-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--gap-md);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.product-preview-card {
+  background: var(--navy-mid);
+  border: 1px solid rgba(200,169,110,0.15);
+  padding: var(--gap-md);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.product-preview-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+.product-preview-card:hover::before { transform: scaleX(1); }
+.product-preview-card:hover { border-color: rgba(200,169,110,0.35); transform: translateY(-2px); }
+.ppc-placeholder {
+  height: 140px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--gap-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+}
+.ppc-name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+.ppc-code {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+.ppc-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--gap-xs);
+}
+.ppc-color {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.45);
+}
+.badge-stock {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: var(--green-light);
+  color: var(--green);
+}
+
+/* ============================================================
+   CATÁLOGO
+   ============================================================ */
+.catalog-section {
+  background: var(--cream);
+  padding: var(--gap-lg) var(--gap-lg) var(--gap-2xl);
+}
+.catalog-header {
+  background: var(--navy);
+  padding: var(--gap-xl) var(--gap-lg) var(--gap-lg);
+  text-align: center;
+}
+.catalog-header .section-title { color: var(--white); }
+.catalog-filters {
+  background: var(--white);
+  border-bottom: 1px solid var(--cream-dark);
+  padding: var(--gap-md) var(--gap-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+  flex-wrap: wrap;
+  position: sticky;
+  top: 64px;
+  z-index: 100;
+}
+.filter-group { display: flex; gap: var(--gap-xs); flex-wrap: wrap; }
+.filter-btn {
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--cream-dark);
+  background: transparent;
+  color: var(--text-mid);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 8px 14px;
+  border: 1px solid var(--cream-dark);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  color: var(--text-dark);
+  background: var(--cream);
+  outline: none;
+  font-family: var(--font-body);
+  transition: border-color 0.2s;
+}
+.search-input:focus { border-color: var(--gold); }
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--gap-lg);
+  max-width: 1200px;
+  margin: var(--gap-xl) auto 0;
+}
+.product-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  box-shadow: 0 8px 40px rgba(11,22,40,0.1);
+  transform: translateY(-3px);
+}
+.pc-image {
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.4);
+  position: relative;
+  overflow: hidden;
+}
+.pc-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.pc-code-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--navy);
+  color: var(--gold);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+}
+.pc-body { padding: var(--gap-md); }
+.pc-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+.pc-color {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: var(--gap-sm);
+}
+.pc-desc {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-bottom: var(--gap-sm);
+}
+.pc-divider { height: 1px; background: var(--cream-dark); margin: var(--gap-sm) 0; }
+.pc-label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+.pc-sizes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--gap-sm);
+}
+.size-chip {
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--cream-dark);
+  color: var(--text-mid);
+}
+.size-chip.available {
+  border-color: var(--navy);
+  color: var(--navy);
+  background: var(--cream);
+  font-weight: 600;
+}
+.size-chip.zero {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+.pc-composition {
+  font-size: 0.72rem;
+  color: var(--text-light);
+  line-height: 1.5;
+}
+.pc-footer {
+  padding: var(--gap-sm) var(--gap-md);
+  border-top: 1px solid var(--cream-dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.pc-stock-total {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--green);
+}
+.pc-origin {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+.no-results {
+  text-align: center;
+  padding: var(--gap-xl);
+  color: var(--text-light);
+  grid-column: 1 / -1;
+}
+.no-results h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  margin-bottom: var(--gap-xs);
+}
+
+/* ============================================================
+   PREÇOS
+   ============================================================ */
+.prices-header {
+  background: var(--navy);
+  padding: var(--gap-xl) var(--gap-lg);
+  text-align: center;
+}
+.prices-header .section-title { color: var(--white); }
+.prices-section {
+  padding: var(--gap-xl) var(--gap-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.prices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--gap-md);
+  margin-bottom: var(--gap-xl);
+}
+.price-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  padding: var(--gap-md);
+  position: relative;
+}
+.price-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+.price-service {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+.price-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--gold);
+  font-family: var(--font-display);
+  margin-bottom: 0.25rem;
+}
+.price-obs {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  font-style: italic;
+}
+.policy-block {
+  background: var(--navy);
+  padding: var(--gap-lg);
+  margin-top: var(--gap-xl);
+}
+.policy-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: var(--gap-md);
+}
+.policy-rows {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-sm);
+}
+.policy-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--gap-sm);
+  border: 1px solid rgba(200,169,110,0.15);
+}
+.policy-row-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.policy-row-value {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+}
+
+/* ============================================================
+   CALCULADORA
+   ============================================================ */
+.calc-header {
+  background: var(--navy);
+  padding: var(--gap-xl) var(--gap-lg);
+  text-align: center;
+}
+.calc-header .section-title { color: var(--white); }
+.calc-section {
+  padding: var(--gap-xl) var(--gap-lg);
+  max-width: 800px;
+  margin: 0 auto;
+}
+.calc-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  padding: var(--gap-lg);
+}
+.calc-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.calc-input, .calc-select {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background: var(--cream);
+  outline: none;
+  transition: border-color 0.2s;
+  margin-bottom: var(--gap-md);
+}
+.calc-input:focus, .calc-select:focus { border-color: var(--gold); }
+.calc-services {
+  margin-bottom: var(--gap-lg);
+}
+.calc-service-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: var(--gap-sm);
+  align-items: center;
+  padding: var(--gap-sm) 0;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.calc-service-row:last-child { border-bottom: none; }
+.csr-name {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+}
+.csr-price {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  white-space: nowrap;
+}
+.csr-qty {
+  width: 70px;
+  padding: 6px 10px;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  text-align: center;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.csr-qty:focus { border-color: var(--gold); }
+.calc-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--gap-md);
+  margin-bottom: var(--gap-lg);
+}
+.calc-result-box {
+  background: var(--navy);
+  padding: var(--gap-md);
+  margin-top: var(--gap-lg);
+}
+.crb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.crb-row:last-of-type { border-bottom: none; }
+.crb-label { font-size: 0.82rem; color: rgba(255,255,255,0.55); }
+.crb-value { font-size: 0.82rem; color: var(--white); font-weight: 500; }
+.crb-total .crb-label {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--white);
+  font-weight: 600;
+}
+.crb-total .crb-value {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+.crb-discount .crb-value { color: #5cb85c; }
+.crb-acrescimo .crb-value { color: #e08030; }
+.calc-actions {
+  margin-top: var(--gap-md);
+  display: flex;
+  gap: var(--gap-sm);
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   MONTADOR DE INTERESSE
+   ============================================================ */
+.interest-header {
+  background: var(--navy);
+  padding: var(--gap-xl) var(--gap-lg);
+  text-align: center;
+}
+.interest-header .section-title { color: var(--white); }
+.interest-section {
+  padding: var(--gap-xl) var(--gap-lg);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.interest-card {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  padding: var(--gap-lg);
+}
+.interest-summary {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  border-left: 3px solid var(--gold);
+  padding: var(--gap-md);
+  margin: var(--gap-lg) 0;
+  display: none;
+}
+.interest-summary.visible { display: block; }
+.is-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: var(--gap-sm);
+}
+.is-rows { display: flex; flex-direction: column; gap: 6px; }
+.is-row { display: flex; gap: var(--gap-sm); }
+.is-row-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  min-width: 90px;
+}
+.is-row-value { font-size: 0.82rem; color: var(--text-dark); }
+
+/* ============================================================
+   ADMIN
+   ============================================================ */
+.admin-header {
+  background: var(--navy);
+  padding: var(--gap-xl) var(--gap-lg);
+  text-align: center;
+}
+.admin-header .section-title { color: var(--white); }
+.admin-section {
+  padding: var(--gap-xl) var(--gap-lg);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.admin-login {
+  max-width: 380px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  padding: var(--gap-lg);
+  text-align: center;
+}
+.admin-login-title {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: var(--gap-xs);
+}
+.admin-login-sub {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-bottom: var(--gap-lg);
+}
+.admin-panel { display: none; }
+.admin-panel.visible { display: block; }
+.admin-product-block {
+  background: var(--white);
+  border: 1px solid var(--cream-dark);
+  padding: var(--gap-md);
+  margin-bottom: var(--gap-md);
+}
+.apb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--gap-md);
+}
+.apb-name {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--navy);
+}
+.apb-code {
+  font-size: 0.72rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+.apb-total {
+  font-size: 0.8rem;
+  color: var(--green);
+  font-weight: 600;
+}
+.apb-sizes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--gap-sm);
+}
+.apb-size-item label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 4px;
+}
+.apb-size-item input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--cream-dark);
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  text-align: center;
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.apb-size-item input:focus { border-color: var(--gold); }
+.admin-actions {
+  display: flex;
+  gap: var(--gap-sm);
+  margin-top: var(--gap-lg);
+  flex-wrap: wrap;
+}
+.alert-msg {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  margin-top: var(--gap-sm);
+  display: none;
+}
+.alert-msg.visible { display: block; }
+.alert-success { background: var(--green-light); color: var(--green); border: 1px solid #b2dfbc; }
+.alert-error { background: #fdecea; color: #c0392b; border: 1px solid #f5c6cb; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--navy);
+  border-top: 1px solid rgba(200,169,110,0.15);
+  padding: var(--gap-lg);
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.05em;
+}
+.footer-tagline {
+  font-family: var(--font-elegant);
+  font-style: italic;
+  color: var(--gold);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+.footer-copy {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: var(--gap-md);
+}
+
+/* ============================================================
+   MOBILE
+   ============================================================ */
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--navy);
+    padding: var(--gap-md);
+    border-bottom: 1px solid rgba(200,169,110,0.15);
+    gap: var(--gap-sm);
+  }
+  .catalog-filters { position: static; top: auto; }
+  .calc-options { grid-template-columns: 1fr; }
+  .policy-rows { grid-template-columns: 1fr; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .admin-section { padding: var(--gap-lg) var(--gap-sm); }
+  .prices-section { padding: var(--gap-lg) var(--gap-sm); }
+  .calc-section { padding: var(--gap-lg) var(--gap-sm); }
+  .interest-section { padding: var(--gap-lg) var(--gap-sm); }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     NAVEGAÇÃO
+     ============================================================ -->
+<nav class="nav">
+  <a class="nav-logo" onclick="showPage('home')">
+    <div>
+      <span class="nav-logo-text">Dandy Alfaiataria</span>
+      <span class="nav-logo-sub">Made In Italy</span>
+    </div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="showPage('home')"     id="nav-home">Home</a></li>
+    <li><a onclick="showPage('catalog')"  id="nav-catalog">Catálogo</a></li>
+    <li><a onclick="showPage('prices')"   id="nav-prices">Preços</a></li>
+    <li><a onclick="showPage('calc')"     id="nav-calc">Calculadora</a></li>
+    <li><a onclick="showPage('interest')" id="nav-interest">Interesse</a></li>
+    <li><a onclick="showPage('admin')"    id="nav-admin">Admin</a></li>
+  </ul>
+  <div class="nav-hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HOME
+     ============================================================ -->
+<div class="page active" id="page-home">
+  <div class="section-spacer"></div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-border"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Catálogo Comercial 2026</p>
+      <h1 class="hero-title">Dandy<br><em>Made In Italy</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-subtitle">Tecidos italianos. Produção na Itália.<br>Alfaiataria contemporânea.</p>
+      <p class="hero-desc">Uma apresentação comercial sofisticada para parceiros, clientes e vendedores. Elegância é identidade.</p>
+      <div class="hero-buttons">
+        <button class="btn btn-primary" onclick="showPage('catalog')">Ver Catálogo</button>
+        <button class="btn btn-outline" onclick="showPage('calc')">Calcular Orçamento</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pillars -->
+  <section class="pillars">
+    <div class="section-header">
+      <p class="section-eyebrow">Nossa Proposta</p>
+      <h2 class="section-title">Quatro pilares de excelência</h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-icon">🇮🇹</div>
+        <div class="pillar-title">Tecidos Italianos</div>
+        <p class="pillar-desc">Cada peça é tecida na Itália com blends premium de alta durabilidade e caimento refinado.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">✂️</div>
+        <div class="pillar-title">Produzido na Itália</div>
+        <p class="pillar-desc">Produção e acabamento realizados na Itália, respeitando os padrões da sartoria clássica.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">◆</div>
+        <div class="pillar-title">Alfaiataria Contemporânea</div>
+        <p class="pillar-desc">Estrutura sartorial com corte moderno e elasticidade confortável para o homem atual.</p>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-icon">🎩</div>
+        <div class="pillar-title">Elegância é Identidade</div>
+        <p class="pillar-desc">Cada produto é uma declaração. A Dandy veste quem entende que estilo é caráter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preview de produtos -->
+  <section class="home-products">
+    <div class="section-header">
+      <p class="section-eyebrow">Linha Made In Italy</p>
+      <h2 class="section-title">Produtos disponíveis</h2>
+    </div>
+    <div class="products-preview-grid" id="homeProductsGrid">
+      <!-- Renderizado via JS -->
+    </div>
+    <div style="text-align:center;margin-top:var(--gap-xl)">
+      <button class="btn btn-gold" onclick="showPage('catalog')">Ver catálogo completo</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-logo">Dandy Alfaiataria</div>
+    <div class="footer-tagline">Elegância é identidade.</div>
+    <div class="footer-copy">© 2026 Dandy Made In Italy — Catálogo Comercial</div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     CATÁLOGO
+     ============================================================ -->
+<div class="page" id="page-catalog">
+  <div class="section-spacer"></div>
+  <div class="catalog-header">
+    <p class="section-eyebrow">Linha 2026</p>
+    <h2 class="section-title">Catálogo Made In Italy</h2>
+  </div>
+  <div class="catalog-filters">
+    <div class="filter-group" id="colorFilters">
+      <button class="filter-btn active" data-color="todos" onclick="filterColor(this,'todos')">Todos</button>
+      <button class="filter-btn" data-color="Azul"  onclick="filterColor(this,'Azul')">Azul</button>
+      <button class="filter-btn" data-color="Verde" onclick="filterColor(this,'Verde')">Verde</button>
+      <button class="filter-btn" data-color="Cinza" onclick="filterColor(this,'Cinza')">Cinza</button>
+    </div>
+    <div class="filter-group" id="sizeFilters">
+      <button class="filter-btn active" data-size="todos" onclick="filterSize(this,'todos')">Todos tam.</button>
+      <button class="filter-btn" data-size="44" onclick="filterSize(this,'44')">44</button>
+      <button class="filter-btn" data-size="46" onclick="filterSize(this,'46')">46</button>
+      <button class="filter-btn" data-size="48" onclick="filterSize(this,'48')">48</button>
+      <button class="filter-btn" data-size="50" onclick="filterSize(this,'50')">50</button>
+      <button class="filter-btn" data-size="52" onclick="filterSize(this,'52')">52</button>
+      <button class="filter-btn" data-size="54" onclick="filterSize(this,'54')">54</button>
+      <button class="filter-btn" data-size="56" onclick="filterSize(this,'56')">56</button>
+      <button class="filter-btn" data-size="58" onclick="filterSize(this,'58')">58</button>
+      <button class="filter-btn" data-size="60" onclick="filterSize(this,'60')">60</button>
+    </div>
+    <input class="search-input" id="searchInput" type="text" placeholder="Buscar por nome, código ou cor…" oninput="filterSearch()">
+  </div>
+  <div class="catalog-section">
+    <div class="catalog-grid" id="catalogGrid">
+      <!-- Renderizado via JS -->
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo">Dandy Alfaiataria</div>
+    <div class="footer-tagline">Elegância é identidade.</div>
+    <div class="footer-copy">© 2026 Dandy Made In Italy — Catálogo Comercial</div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     PREÇOS
+     ============================================================ -->
+<div class="page" id="page-prices">
+  <div class="section-spacer"></div>
+  <div class="prices-header">
+    <p class="section-eyebrow">Tabela Comercial 2026</p>
+    <h2 class="section-title">Preços e Política Comercial</h2>
+  </div>
+  <div class="prices-section">
+    <div class="section-header">
+      <p class="section-eyebrow">Serviços</p>
+      <h3 class="section-title" style="font-size:1.4rem">Peças Sob Medida</h3>
+    </div>
+    <div class="prices-grid" id="pricesGrid">
+      <!-- Renderizado via JS -->
+    </div>
+    <div class="policy-block">
+      <div class="policy-title">Política Comercial</div>
+      <div class="policy-rows">
+        <div class="policy-row">
+          <span class="policy-row-label">Prazo padrão</span>
+          <span class="policy-row-value">30 dias úteis — contado da entrega do tecido e confirmação financeira.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-row-label">Pagamento à vista</span>
+          <span class="policy-row-value">10% de desconto (exceto camisas).</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-row-label">50% entrada + 50% entrega</span>
+          <span class="policy-row-value">Sem desconto.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-row-label">Urgência 20–30 dias</span>
+          <span class="policy-row-value">Acréscimo de 20%.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-row-label">Urgência 10–20 dias</span>
+          <span class="policy-row-value">Acréscimo de 30%.</span>
+        </div>
+        <div class="policy-row">
+          <span class="policy-row-label">Urgência até 10 dias</span>
+          <span class="policy-row-value">Acréscimo de 40%.</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:var(--gap-xl)">
+      <button class="btn btn-navy" onclick="showPage('calc')">Ir para Calculadora →</button>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo">Dandy Alfaiataria</div>
+    <div class="footer-tagline">Elegância é identidade.</div>
+    <div class="footer-copy">© 2026 Dandy Made In Italy — Catálogo Comercial</div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     CALCULADORA
+     ============================================================ -->
+<div class="page" id="page-calc">
+  <div class="section-spacer"></div>
+  <div class="calc-header">
+    <p class="section-eyebrow">Orçamento</p>
+    <h2 class="section-title">Calculadora Comercial</h2>
+  </div>
+  <div class="calc-section">
+    <div class="calc-card">
+      <label class="calc-label">Serviços desejados — informe as quantidades</label>
+      <div class="calc-services" id="calcServicesRows">
+        <!-- Renderizado via JS -->
+      </div>
+
+      <div class="calc-options">
+        <div>
+          <label class="calc-label" for="calcPagamento">Forma de pagamento</label>
+          <select class="calc-select" id="calcPagamento" onchange="calcUpdate()">
+            <option value="avista">À vista (–10% exceto camisas)</option>
+            <option value="parcelado">50% entrada + 50% entrega</option>
+          </select>
+        </div>
+        <div>
+          <label class="calc-label" for="calcPrazo">Prazo de entrega</label>
+          <select class="calc-select" id="calcPrazo" onchange="calcUpdate()">
+            <option value="0">Padrão — 30 dias úteis</option>
+            <option value="20">Urgência — 20 a 30 dias (+20%)</option>
+            <option value="30">Urgência — 10 a 20 dias (+30%)</option>
+            <option value="40">Urgência — até 10 dias (+40%)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-result-box" id="calcResultBox">
+        <div class="crb-row">
+          <span class="crb-label">Subtotal</span>
+          <span class="crb-value" id="calcSubtotal">R$ 0,00</span>
+        </div>
+        <div class="crb-row crb-discount">
+          <span class="crb-label">Desconto à vista</span>
+          <span class="crb-value" id="calcDesconto">– R$ 0,00</span>
+        </div>
+        <div class="crb-row crb-acrescimo">
+          <span class="crb-label">Acréscimo urgência</span>
+          <span class="crb-value" id="calcAcrescimo">+ R$ 0,00</span>
+        </div>
+        <div class="crb-row crb-total" style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15);">
+          <span class="crb-label">Total estimado</span>
+          <span class="crb-value" id="calcTotal">R$ 0,00</span>
+        </div>
+      </div>
+
+      <div class="calc-actions">
+        <button class="btn btn-whatsapp" onclick="calcSendWhatsApp()">📲 Enviar orçamento no WhatsApp</button>
+        <button class="btn btn-outline" style="color:var(--text-mid);border-color:var(--cream-dark);" onclick="calcReset()">Limpar</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo">Dandy Alfaiataria</div>
+    <div class="footer-tagline">Elegância é identidade.</div>
+    <div class="footer-copy">© 2026 Dandy Made In Italy — Catálogo Comercial</div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     INTERESSE
+     ============================================================ -->
+<div class="page" id="page-interest">
+  <div class="section-spacer"></div>
+  <div class="interest-header">
+    <p class="section-eyebrow">Solicitar</p>
+    <h2 class="section-title">Manifestar Interesse</h2>
+  </div>
+  <div class="interest-section">
+    <div class="interest-card">
+      <label class="calc-label" for="intProduct">Produto</label>
+      <select class="calc-select" id="intProduct" onchange="interestUpdate()">
+        <option value="">— selecione um produto —</option>
+      </select>
+
+      <label class="calc-label" for="intSize">Tamanho desejado</label>
+      <select class="calc-select" id="intSize" onchange="interestUpdate()">
+        <option value="">— selecione o tamanho —</option>
+      </select>
+
+      <label class="calc-label" for="intService">Serviço desejado</label>
+      <select class="calc-select" id="intService" onchange="interestUpdate()">
+        <option value="">— selecione o serviço —</option>
+      </select>
+
+      <label class="calc-label" for="intName">Seu nome (opcional)</label>
+      <input class="calc-input" type="text" id="intName" placeholder="Nome do interessado" oninput="interestUpdate()">
+
+      <label class="calc-label" for="intObs">Observações</label>
+      <input class="calc-input" type="text" id="intObs" placeholder="Alguma observação ou detalhe adicional…" oninput="interestUpdate()">
+
+      <div class="interest-summary" id="interestSummary">
+        <div class="is-title">Resumo do interesse</div>
+        <div class="is-rows" id="interestSummaryRows"></div>
+      </div>
+
+      <div style="margin-top:var(--gap-md);display:flex;gap:var(--gap-sm);flex-wrap:wrap;">
+        <button class="btn btn-whatsapp" onclick="interestSendWhatsApp()">📲 Enviar interesse no WhatsApp</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo">Dandy Alfaiataria</div>
+    <div class="footer-tagline">Elegância é identidade.</div>
+    <div class="footer-copy">© 2026 Dandy Made In Italy — Catálogo Comercial</div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     ADMIN
+     ============================================================ -->
+<div class="page" id="page-admin">
+  <div class="section-spacer"></div>
+  <div class="admin-header">
+    <p class="section-eyebrow">Painel Interno</p>
+    <h2 class="section-title">Administração de Estoque</h2>
+  </div>
+  <div class="admin-section">
+    <!-- Login -->
+    <div class="admin-login" id="adminLogin">
+      <div class="admin-login-title">Acesso restrito</div>
+      <p class="admin-login-sub">Digite a senha para acessar o painel de estoque.</p>
+      <label class="calc-label" for="adminPwd">Senha</label>
+      <input class="calc-input" type="password" id="adminPwd" placeholder="Senha de acesso" onkeydown="if(event.key==='Enter')adminLogin()">
+      <div id="adminAlert" class="alert-msg alert-error">Senha incorreta.</div>
+      <button class="btn btn-navy" style="width:100%;margin-top:var(--gap-sm);" onclick="adminLogin()">Entrar</button>
+    </div>
+
+    <!-- Painel -->
+    <div class="admin-panel" id="adminPanel">
+      <div id="adminProductBlocks"></div>
+      <div class="admin-actions">
+        <button class="btn btn-gold" onclick="adminSave()">💾 Salvar alterações</button>
+        <button class="btn btn-danger" onclick="adminReset()">↺ Resetar para dados originais</button>
+        <button class="btn btn-outline" style="color:var(--text-mid);border-color:var(--cream-dark);" onclick="adminLogout()">Sair</button>
+      </div>
+      <div id="adminSaveAlert" class="alert-msg"></div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="footer-logo">Dandy Alfaiataria</div>
+    <div class="footer-tagline">Elegância é identidade.</div>
+    <div class="footer-copy">© 2026 Dandy Made In Italy — Catálogo Comercial</div>
+  </footer>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ============================================================
+// ⚙️ CONFIGURAÇÕES — EDITE AQUI
+// ============================================================
+
+// Número WhatsApp: código país + DDD + número (sem espaços ou símbolos)
+// Exemplo: 5516994401722 = +55 16 99440-1722
+const WHATSAPP_NUMBER = "5516994401722";
+
+// Senha do admin
+const ADMIN_PASSWORD = "dandy2026";
+
+// ============================================================
+// 📦 DADOS — PRODUTOS
+// Para adicionar produtos: copie um objeto e edite os campos.
+// grade: tamanho -> quantidade disponível
+// ============================================================
+const PRODUCTS_ORIGINAL = [
+  {
+    id: "azzuro-28a",
+    nome: "AZZURO 28A",
+    codigo: "MIT - 028A",
+    cor: "Azul Denim",
+    categoriaCor: "Azul",
+    descricao: "Tessuto italiano premium com estrutura leve, elasticidade confortável e visual sofisticado contemporâneo.",
+    composicao: "45% Wool · 33% Poly · 20% Viscosa · 2% Elastan",
+    origemTecido: "Itália",
+    produzidoEm: "Itália",
+    grade: { "44": 1, "46": 1, "48": 1, "52": 1, "56": 1, "60": 1 },
+    // Para adicionar imagem: coloque a URL ou caminho aqui
+    imagem: "",
+    corBg: "linear-gradient(135deg, #8BAFD4 0%, #5A86B0 100%)"
+  },
+  {
+    id: "avion",
+    nome: "AVION",
+    codigo: "MIT - 032A",
+    cor: "Azul Avion",
+    categoriaCor: "Azul",
+    descricao: "Tessuto italiano premium com estrutura leve, elasticidade confortável e visual sofisticado contemporâneo.",
+    composicao: "45% Wool · 33% Poly · 20% Viscosa · 2% Elastan",
+    origemTecido: "Itália",
+    produzidoEm: "Itália",
+    grade: { "46": 1, "48": 3, "50": 1, "52": 1 },
+    imagem: "",
+    corBg: "linear-gradient(135deg, #2C4E7B 0%, #1A3257 100%)"
+  },
+  {
+    id: "verde-muco",
+    nome: "VERDE MUCO",
+    codigo: "MIT - 035A",
+    cor: "Verde Muco",
+    categoriaCor: "Verde",
+    descricao: "Tessuto italiano premium com estrutura leve, elasticidade confortável e visual sofisticado contemporâneo.",
+    composicao: "45% Wool · 33% Poly · 20% Viscosa · 2% Elastan",
+    origemTecido: "Itália",
+    produzidoEm: "Itália",
+    grade: { "44": 1, "46": 1, "48": 1, "50": 2, "52": 3, "54": 2, "56": 2, "58": 1 },
+    imagem: "",
+    corBg: "linear-gradient(135deg, #6B7B50 0%, #4A5C32 100%)"
+  },
+  {
+    id: "cinza-poa-d4",
+    nome: "CINZA POA D4",
+    codigo: "MIT - 032A",
+    cor: "Cinza Poa",
+    categoriaCor: "Cinza",
+    descricao: "Tessuto italiano premium com estrutura leve, elasticidade confortável e visual sofisticado contemporâneo.",
+    composicao: "45% Wool · 33% Poly · 20% Viscosa · 2% Elastan",
+    origemTecido: "Itália",
+    produzidoEm: "Itália",
+    grade: { "48": 1, "52": 2, "54": 2, "56": 2, "58": 1 },
+    imagem: "",
+    corBg: "linear-gradient(135deg, #A8A49E 0%, #7C7872 100%)"
+  }
+];
+
+// ============================================================
+// 💰 DADOS — SERVIÇOS E PREÇOS
+// Para alterar preços: edite o campo "valor" (em reais)
+// ============================================================
+const SERVICES = [
+  { id: "costume", nome: "Costume sob medida",  valor: 1500, obs: "Sem colete.", canDiscount: true },
+  { id: "terno",   nome: "Terno sob medida",     valor: 1800, obs: "Com colete.", canDiscount: true },
+  { id: "blazer",  nome: "Blazer sob medida",    valor: 1200, obs: "", canDiscount: true },
+  { id: "calca",   nome: "Calça avulsa",          valor: 450,  obs: "", canDiscount: true },
+  { id: "colete",  nome: "Colete",               valor: 450,  obs: "", canDiscount: true },
+  { id: "camisa",  nome: "Camisa sob medida",    valor: 240,  obs: "Camisas não possuem desconto à vista.", canDiscount: false },
+  { id: "monograma", nome: "Monograma",          valor: 10,   obs: "Valor por letra. Ex: J.M. = R$ 20,00.", canDiscount: true, isMonogram: true }
+];
+
+// ============================================================
+// ESTADO GLOBAL
+// ============================================================
+let products = [];
+let activeColor = "todos";
+let activeSize  = "todos";
+let searchQuery = "";
+
+// ============================================================
+// INICIALIZAÇÃO
+// ============================================================
+function init() {
+  loadStock();
+  renderHomeProducts();
+  renderCatalog();
+  renderPrices();
+  renderCalcServices();
+  renderInterestSelects();
+  calcUpdate();
+}
+
+// ============================================================
+// STORAGE — ESTOQUE
+// ============================================================
+function loadStock() {
+  try {
+    const saved = localStorage.getItem("dandy_stock_v1");
+    if (saved) {
+      const grades = JSON.parse(saved);
+      products = PRODUCTS_ORIGINAL.map(p => ({
+        ...p,
+        grade: grades[p.id] || { ...p.grade }
+      }));
+    } else {
+      products = PRODUCTS_ORIGINAL.map(p => ({ ...p, grade: { ...p.grade } }));
+    }
+  } catch(e) {
+    products = PRODUCTS_ORIGINAL.map(p => ({ ...p, grade: { ...p.grade } }));
+  }
+}
+function saveStock() {
+  const grades = {};
+  products.forEach(p => { grades[p.id] = { ...p.grade }; });
+  localStorage.setItem("dandy_stock_v1", JSON.stringify(grades));
+}
+function resetStock() {
+  products = PRODUCTS_ORIGINAL.map(p => ({ ...p, grade: { ...p.grade } }));
+  localStorage.removeItem("dandy_stock_v1");
+}
+
+// ============================================================
+// FORMATAÇÃO
+// ============================================================
+function fmtBRL(val) {
+  return "R$ " + val.toFixed(2).replace(".", ",").replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+function totalStock(grade) {
+  return Object.values(grade).reduce((a,b) => a + (parseInt(b)||0), 0);
+}
+
+// ============================================================
+// NAVEGAÇÃO
+// ============================================================
+function showPage(id) {
+  document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+  document.getElementById("page-" + id).classList.add("active");
+  document.querySelectorAll(".nav-links a").forEach(a => a.classList.remove("active"));
+  const navEl = document.getElementById("nav-" + id);
+  if (navEl) navEl.classList.add("active");
+  window.scrollTo(0, 0);
+  // close mobile menu
+  document.getElementById("navLinks").classList.remove("open");
+}
+function toggleMenu() {
+  document.getElementById("navLinks").classList.toggle("open");
+}
+
+// ============================================================
+// HOME — RENDERIZAR PREVIEW
+// ============================================================
+function renderHomeProducts() {
+  const grid = document.getElementById("homeProductsGrid");
+  grid.innerHTML = products.map(p => {
+    const total = totalStock(p.grade);
+    return `
+    <div class="product-preview-card" onclick="showPage('catalog')">
+      <div class="ppc-placeholder" style="background:${p.corBg}">
+        ${p.imagem ? `<img src="${p.imagem}" alt="${p.nome}" style="width:100%;height:100%;object-fit:cover;border-radius:4px;">` : p.nome}
+      </div>
+      <div class="ppc-name">${p.nome}</div>
+      <div class="ppc-code">${p.codigo}</div>
+      <div class="ppc-meta">
+        <span class="ppc-color">${p.cor}</span>
+        ${total > 0 ? `<span class="badge-stock">Disponível · ${total} un.</span>` : '<span style="font-size:0.65rem;color:#c0392b;">Sem estoque</span>'}
+      </div>
+    </div>`;
+  }).join("");
+}
+
+// ============================================================
+// CATÁLOGO — RENDERIZAR
+// ============================================================
+function renderCatalog() {
+  const grid = document.getElementById("catalogGrid");
+  const filtered = products.filter(p => {
+    const colorOk = activeColor === "todos" || p.categoriaCor === activeColor;
+    const sizeOk  = activeSize === "todos"  || (p.grade[activeSize] !== undefined && p.grade[activeSize] > 0);
+    const q = searchQuery.toLowerCase();
+    const searchOk = !q || p.nome.toLowerCase().includes(q) || p.codigo.toLowerCase().includes(q) || p.cor.toLowerCase().includes(q);
+    return colorOk && sizeOk && searchOk;
+  });
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-results"><h3>Nenhum produto encontrado</h3><p>Tente ajustar os filtros ou a busca.</p></div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map(p => {
+    const total = totalStock(p.grade);
+    const allSizes = ["44","46","48","50","52","54","56","58","60"];
+    const sizeChips = allSizes.map(s => {
+      const qty = p.grade[s] !== undefined ? parseInt(p.grade[s]) : 0;
+      if (qty > 0) return `<span class="size-chip available" title="${qty} un.">${s}</span>`;
+      if (p.grade[s] !== undefined) return `<span class="size-chip zero">${s}</span>`;
+      return "";
+    }).join("");
+    return `
+    <div class="product-card">
+      <div class="pc-image" style="background:${p.corBg}">
+        ${p.imagem ? `<img src="${p.imagem}" alt="${p.nome}">` : `<span style="font-family:var(--font-display);font-style:italic;color:rgba(255,255,255,0.5);font-size:0.85rem;">${p.cor}</span>`}
+        <div class="pc-code-tag">${p.codigo}</div>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">${p.nome}</div>
+        <div class="pc-color">${p.cor}</div>
+        <div class="pc-desc">${p.descricao}</div>
+        <div class="pc-divider"></div>
+        <div class="pc-label">Tamanhos disponíveis</div>
+        <div class="pc-sizes">${sizeChips}</div>
+        <div class="pc-divider"></div>
+        <div class="pc-label">Composição</div>
+        <div class="pc-composition">${p.composicao}</div>
+      </div>
+      <div class="pc-footer">
+        <span class="pc-stock-total">${total > 0 ? `✔ ${total} unidade${total>1?'s':''} disponíve${total>1?'is':'l'}` : '✗ Sem estoque'}</span>
+        <span class="pc-origin">🇮🇹 Itália</span>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+// FILTROS
+function filterColor(el, val) {
+  document.querySelectorAll("#colorFilters .filter-btn").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+  activeColor = val;
+  renderCatalog();
+}
+function filterSize(el, val) {
+  document.querySelectorAll("#sizeFilters .filter-btn").forEach(b => b.classList.remove("active"));
+  el.classList.add("active");
+  activeSize = val;
+  renderCatalog();
+}
+function filterSearch() {
+  searchQuery = document.getElementById("searchInput").value;
+  renderCatalog();
+}
+
+// ============================================================
+// PREÇOS — RENDERIZAR
+// ============================================================
+function renderPrices() {
+  const grid = document.getElementById("pricesGrid");
+  grid.innerHTML = SERVICES.map(s => `
+    <div class="price-card">
+      <div class="price-service">${s.nome}</div>
+      <div class="price-value">${fmtBRL(s.valor)}${s.isMonogram ? " /letra" : ""}</div>
+      ${s.obs ? `<div class="price-obs">${s.obs}</div>` : ""}
+    </div>`).join("");
+}
+
+// ============================================================
+// CALCULADORA
+// ============================================================
+function renderCalcServices() {
+  const rows = document.getElementById("calcServicesRows");
+  rows.innerHTML = SERVICES.map(s => `
+    <div class="calc-service-row" id="csr-${s.id}">
+      <span class="csr-name">${s.nome}</span>
+      <span class="csr-price">${fmtBRL(s.valor)}${s.isMonogram ? " /letra" : ""}</span>
+      <input class="csr-qty" type="number" min="0" value="0" id="qty-${s.id}"
+             ${s.isMonogram ? 'placeholder="letras"' : ''}
+             oninput="calcUpdate()">
+    </div>`).join("");
+}
+
+function calcUpdate() {
+  const pagamento = document.getElementById("calcPagamento").value;
+  const urgPerc   = parseInt(document.getElementById("calcPrazo").value) || 0;
+
+  let subtotal = 0;
+  let descontoBase = 0;
+  SERVICES.forEach(s => {
+    const qty = parseInt(document.getElementById("qty-"+s.id).value) || 0;
+    if (qty > 0) {
+      const lineTotal = s.valor * qty;
+      subtotal += lineTotal;
+      if (pagamento === "avista" && s.canDiscount) {
+        descontoBase += lineTotal * 0.10;
+      }
+    }
+  });
+
+  const aposDesconto = subtotal - descontoBase;
+  const acrescimo    = aposDesconto * (urgPerc / 100);
+  const total        = aposDesconto + acrescimo;
+
+  document.getElementById("calcSubtotal").textContent  = fmtBRL(subtotal);
+  document.getElementById("calcDesconto").textContent  = "– " + fmtBRL(descontoBase);
+  document.getElementById("calcAcrescimo").textContent = "+ " + fmtBRL(acrescimo);
+  document.getElementById("calcTotal").textContent     = fmtBRL(total);
+}
+
+function calcReset() {
+  SERVICES.forEach(s => { document.getElementById("qty-"+s.id).value = 0; });
+  calcUpdate();
+}
+
+function calcSendWhatsApp() {
+  const pagamento = document.getElementById("calcPagamento");
+  const prazo     = document.getElementById("calcPrazo");
+
+  const linhas = [];
+  SERVICES.forEach(s => {
+    const qty = parseInt(document.getElementById("qty-"+s.id).value) || 0;
+    if (qty > 0) linhas.push(`  • ${s.nome}: ${qty}${s.isMonogram ? " letra(s)" : ""} × ${fmtBRL(s.valor)}`);
+  });
+
+  if (!linhas.length) {
+    alert("Adicione ao menos um serviço para enviar o orçamento.");
+    return;
+  }
+
+  const subtotal   = document.getElementById("calcSubtotal").textContent;
+  const desconto   = document.getElementById("calcDesconto").textContent;
+  const acrescimo  = document.getElementById("calcAcrescimo").textContent;
+  const total      = document.getElementById("calcTotal").textContent;
+
+  const msg = `Olá! Gostaria de solicitar um orçamento da linha *Dandy Made In Italy*.
+
+*Serviços selecionados:*
+${linhas.join("\n")}
+
+*Forma de pagamento:* ${pagamento.options[pagamento.selectedIndex].text}
+*Prazo:* ${prazo.options[prazo.selectedIndex].text}
+
+Subtotal: ${subtotal}
+Desconto: ${desconto}
+Acréscimo: ${acrescimo}
+*Total estimado: ${total}*`;
+
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+}
+
+// ============================================================
+// MONTADOR DE INTERESSE
+// ============================================================
+function renderInterestSelects() {
+  const sel = document.getElementById("intProduct");
+  products.forEach(p => {
+    const opt = document.createElement("option");
+    opt.value = p.id;
+    opt.textContent = `${p.nome} — ${p.cor}`;
+    sel.appendChild(opt);
+  });
+
+  const svc = document.getElementById("intService");
+  SERVICES.forEach(s => {
+    const opt = document.createElement("option");
+    opt.value = s.id;
+    opt.textContent = `${s.nome} — ${fmtBRL(s.valor)}`;
+    svc.appendChild(opt);
+  });
+}
+
+function interestUpdate() {
+  const pid  = document.getElementById("intProduct").value;
+  const size = document.getElementById("intSize").value;
+  const sid  = document.getElementById("intService").value;
+
+  // Atualizar tamanhos disponíveis ao escolher produto
+  const sizeSel = document.getElementById("intSize");
+  const currentSize = sizeSel.value;
+  if (pid) {
+    const prod = products.find(p => p.id === pid);
+    if (prod) {
+      sizeSel.innerHTML = '<option value="">— selecione o tamanho —</option>';
+      ["44","46","48","50","52","54","56","58","60"].forEach(s => {
+        if (prod.grade[s] > 0) {
+          const opt = document.createElement("option");
+          opt.value = s;
+          opt.textContent = `${s} (${prod.grade[s]} un. disponíve${prod.grade[s]>1?'is':'l'})`;
+          if (s === currentSize) opt.selected = true;
+          sizeSel.appendChild(opt);
+        }
+      });
+    }
+  } else {
+    sizeSel.innerHTML = '<option value="">— selecione o tamanho —</option>';
+  }
+
+  // Resumo
+  const sum = document.getElementById("interestSummary");
+  const rows = document.getElementById("interestSummaryRows");
+  if (!pid) { sum.classList.remove("visible"); return; }
+
+  const prod = products.find(p => p.id === pid);
+  const svc  = SERVICES.find(s => s.id === sid);
+  const nome = document.getElementById("intName").value;
+  const obs  = document.getElementById("intObs").value;
+
+  let html = "";
+  if (prod) {
+    html += rowIS("Produto", prod.nome);
+    html += rowIS("Código",  prod.codigo);
+    html += rowIS("Cor",     prod.cor);
+  }
+  if (sizeSel.value) html += rowIS("Tamanho", sizeSel.value);
+  if (svc)           html += rowIS("Serviço", `${svc.nome} — ${fmtBRL(svc.valor)}`);
+  if (nome)          html += rowIS("Nome",    nome);
+  if (obs)           html += rowIS("Obs.",    obs);
+
+  rows.innerHTML = html;
+  sum.classList.add("visible");
+}
+
+function rowIS(label, val) {
+  return `<div class="is-row"><span class="is-row-label">${label}</span><span class="is-row-value">${val}</span></div>`;
+}
+
+function interestSendWhatsApp() {
+  const pid   = document.getElementById("intProduct").value;
+  const size  = document.getElementById("intSize").value;
+  const sid   = document.getElementById("intService").value;
+  const nome  = document.getElementById("intName").value;
+  const obs   = document.getElementById("intObs").value;
+
+  if (!pid) { alert("Selecione um produto para continuar."); return; }
+
+  const prod = products.find(p => p.id === pid);
+  const svc  = SERVICES.find(s => s.id === sid);
+
+  let msg = `Olá! Tenho interesse em um produto da linha *Dandy Made In Italy*.
+
+*Produto:* ${prod.nome}
+*Código:* ${prod.codigo}
+*Cor:* ${prod.cor}`;
+
+  if (size) msg += `\n*Tamanho:* ${size}`;
+  if (svc)  msg += `\n*Serviço desejado:* ${svc.nome} (${fmtBRL(svc.valor)})`;
+  if (nome) msg += `\n*Nome:* ${nome}`;
+  if (obs)  msg += `\n*Observações:* ${obs}`;
+
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg), "_blank");
+}
+
+// ============================================================
+// ADMIN
+// ============================================================
+function adminLogin() {
+  const pwd = document.getElementById("adminPwd").value;
+  const alert = document.getElementById("adminAlert");
+  if (pwd === ADMIN_PASSWORD) {
+    document.getElementById("adminLogin").style.display = "none";
+    renderAdminPanel();
+    document.getElementById("adminPanel").classList.add("visible");
+    alert.classList.remove("visible");
+  } else {
+    alert.classList.add("visible");
+  }
+}
+function adminLogout() {
+  document.getElementById("adminPanel").classList.remove("visible");
+  document.getElementById("adminLogin").style.display = "";
+  document.getElementById("adminPwd").value = "";
+}
+
+function renderAdminPanel() {
+  const container = document.getElementById("adminProductBlocks");
+  container.innerHTML = products.map(p => {
+    const total = totalStock(p.grade);
+    const allSizes = ["44","46","48","50","52","54","56","58","60"];
+    const sizeInputs = allSizes.map(s => `
+      <div class="apb-size-item">
+        <label>Tam. ${s}</label>
+        <input type="number" min="0" value="${p.grade[s] || 0}" id="admin-${p.id}-${s}">
+      </div>`).join("");
+    return `
+    <div class="admin-product-block">
+      <div class="apb-header">
+        <div>
+          <div class="apb-name">${p.nome}</div>
+          <div class="apb-code">${p.codigo} · ${p.cor}</div>
+        </div>
+        <span class="apb-total">Total: ${total} un.</span>
+      </div>
+      <div class="apb-sizes">${sizeInputs}</div>
+    </div>`;
+  }).join("");
+}
+
+function adminSave() {
+  const allSizes = ["44","46","48","50","52","54","56","58","60"];
+  products.forEach(p => {
+    allSizes.forEach(s => {
+      const input = document.getElementById(`admin-${p.id}-${s}`);
+      if (input) p.grade[s] = parseInt(input.value) || 0;
+    });
+  });
+  saveStock();
+  renderHomeProducts();
+  renderCatalog();
+  renderAdminPanel();
+  renderInterestSelects();
+
+  const a = document.getElementById("adminSaveAlert");
+  a.textContent = "✔ Estoque salvo com sucesso!";
+  a.className = "alert-msg alert-success visible";
+  setTimeout(() => a.classList.remove("visible"), 3000);
+}
+
+function adminReset() {
+  if (!confirm("Resetar o estoque para os dados originais do catálogo?")) return;
+  resetStock();
+  renderHomeProducts();
+  renderCatalog();
+  renderAdminPanel();
+
+  const a = document.getElementById("adminSaveAlert");
+  a.textContent = "↺ Estoque resetado para os dados originais.";
+  a.className = "alert-msg alert-success visible";
+  setTimeout(() => a.classList.remove("visible"), 3000);
+}
+
+// ============================================================
+// START
+// ============================================================
+init();
+</script>
+</body>
+</html>
